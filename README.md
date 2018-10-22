@@ -11,7 +11,7 @@ of code paths.
 
 ```elm
     import Animal
-    import Help.Loadable as L
+    import Loadable as L
     import Html exposing (text)
     import Http
     import Task exposing (Task)
