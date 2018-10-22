@@ -52,6 +52,8 @@ of code paths.
 
     -- This is what sets a Loadable element apart from a normal Browser.element. You can join
     -- however many Tasks you want together to return your starting (Model, Msg) when the page loads.
+    -- In the meantime, the `loadingView` you specify will display info to the user that the page is loading
+    -- and if anything fails, your `errorView` can be used to display an error message to the user.
     load : Flags -> Task Http.Error ( Model, Cmd Msg )
     load flags =
         let
