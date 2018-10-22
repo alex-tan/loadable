@@ -8,6 +8,8 @@ By separating the initial load process from the rest of your application, it all
 in your application because you no longer have to deal with as many Maybe values, therefore reducing the complexity and number
 of code paths.
 
+Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
+
 
 ```elm
     import Animal
