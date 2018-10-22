@@ -1,3 +1,4 @@
+# alex-tan/loadable
 
 This package allows you to separate the initial loading of resources in an Elm program
 from the rest of the logic of your application.
@@ -45,7 +46,6 @@ of code paths.
             , failCmd = Nothing
             , loadingView = Just (\flags -> text "Loading...")
             , errorView = Just (\error -> text "Something went wrong!")
-
             }
 
     subscriptions : Model -> Sub Msg
