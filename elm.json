@@ -3,7 +3,7 @@
     "name": "alex-tan/loadable",
     "summary": "Separate the loading of your application from the logic.",
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "exposed-modules": ["Loadable"],
     "elm-version": "0.19.0 <= v < 0.20.0",
     "source-directories": [
