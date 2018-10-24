@@ -1,4 +1,7 @@
-module Loadable exposing (element, Model, Msg)
+module Loadable exposing
+    ( element, Model, Msg
+    , Program
+    )
 
 {-|
 
@@ -10,6 +13,10 @@ import Browser exposing (..)
 import Browser.Navigation exposing (..)
 import Html exposing (Html, text)
 import Task exposing (Task)
+
+
+type alias Program flags model msg error =
+    Platform.Program flags (Model flags model error) (Msg model msg error)
 
 
 {-| Behaves a lot like element from the Html package, with a few additions.
@@ -32,7 +39,7 @@ element :
     -- Takes any error that was produced during the load step and displays HTML.
     , errorView : Maybe (e -> Html (Msg innerModel innerMsg e))
     }
-    -> Program flags (Model flags innerModel e) (Msg innerModel innerMsg e)
+    -> Program flags innerModel innerMsg e
 element { update, view, subscriptions, load, failCmd, loadingView, errorView } =
     Browser.element
         { init = lInit load
