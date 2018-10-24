@@ -1,11 +1,8 @@
-module Loadable exposing
-    ( element, Model, Msg
-    , Program
-    )
+module Loadable exposing (element, Model, Msg, Program)
 
 {-|
 
-@docs element, Model, Msg
+@docs element, Model, Msg, Program
 
 -}
 
@@ -15,6 +12,9 @@ import Html exposing (Html, text)
 import Task exposing (Task)
 
 
+{-| A less complicated alias for the Program that gets produced from this package
+which you can use in your type annotations.
+-}
 type alias Program flags model msg error =
     Platform.Program flags (Model flags model error) (Msg model msg error)
 
