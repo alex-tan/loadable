@@ -35,9 +35,8 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
         = Noop
 
     -- Instead of using Browser.element directly, you can use Loadable.element to get back
-    -- a Program of Loadable Msg and Loadable Model which wraps your application.
-    -- There are some additional options that you can find documented below.
-    main : L.Program Flags Flags Model Msg Http.Error
+    -- a L.Program which is an alias for Browser.program behind the scenes.
+    main : L.Program Flags Model Msg Http.Error
     main =
         L.element
             { update = \msg model -> model
