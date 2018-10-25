@@ -5,8 +5,7 @@ from the rest of the logic of your application.
 
 Example: Let's say you have an Elm application that depends on a JSON payload being loaded.
 By separating the initial load process from the rest of your application, it allows you to simplify all subsequent code
-in your application because you no longer have to deal with as many Maybe values, therefore reducing the complexity and number
-of code paths.
+in your application because you no longer have to deal with as many Maybe values, therefore reducing the complexity and number of code paths.
 
 Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
 
@@ -38,7 +37,7 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
     -- Instead of using Browser.element directly, you can use Loadable.element to get back
     -- a Program of Loadable Msg and Loadable Model which wraps your application.
     -- There are some additional options that you can find documented below.
-    main : Program Flags (L.Model Flags Model Http.Error) (L.Msg Model Msg Http.Error)
+    main : L.Program Flags Flags Model Msg Http.Error
     main =
         L.element
             { update = \msg model -> model

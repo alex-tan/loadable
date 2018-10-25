@@ -1,8 +1,8 @@
-module Loadable exposing (element, Model, Msg, Program)
+module Loadable exposing (element, Program)
 
 {-|
 
-@docs element, Model, Msg, Program
+@docs element, Program
 
 -}
 
@@ -12,31 +12,28 @@ import Html exposing (Html, text)
 import Task exposing (Task)
 
 
-{-| A less complicated alias for the Program that gets produced from this package
-which you can use in your type annotations.
+{-| An alias for the Browser.Program that gets produced from this package which makes
+it easier to add type annotations for your programs.
 -}
 type alias Program flags model msg error =
     Platform.Program flags (Model flags model error) (Msg model msg error)
 
 
 {-| Behaves a lot like element from the Html package, with a few additions.
+
+  - `load` replaces `init`.
+  - `failCmd` can be used to send any error that results from the `load` task through a port.
+  - `loadingView` can take flags and return a loading view.
+  - `errorView` can take any error that results from `load` and display an error message.
+
 -}
 element :
     { update : innerMsg -> innerModel -> ( innerModel, Cmd innerMsg )
     , subscriptions : innerModel -> Sub innerMsg
     , view : innerModel -> Html innerMsg
-
-    -- Takes the flags it's given and returns the initial state of the model.
     , load : flags -> Task e ( innerModel, Cmd innerMsg )
-
-    -- Takes any error that was produced during the load step and returns a command to be run.
-    -- (This can be used to send a message out through a port for error reporting.)
     , failCmd : Maybe (e -> Cmd (Msg innerModel innerMsg e))
-
-    -- Takes your flags and displays HTML while the page loads.
     , loadingView : Maybe (flags -> Html (Msg innerModel innerMsg e))
-
-    -- Takes any error that was produced during the load step and displays HTML.
     , errorView : Maybe (e -> Html (Msg innerModel innerMsg e))
     }
     -> Program flags innerModel innerMsg e
@@ -49,17 +46,12 @@ element { update, view, subscriptions, load, failCmd, loadingView, errorView } =
         }
 
 
-{-| The Model that wraps your Model.
--}
 type Model flags innerModel error
     = Loading flags
     | Loaded innerModel
     | Error error
 
 
-{-| The Msg that wraps your Msg. LoadSuccess/LoadError triggers depending on the result of your load function. ToInner is the msg that
--- passes all your program messages on to your update function.
--}
 type Msg innerModel msg error
     = LoadSuccess innerModel (Cmd msg)
     | LoadError error
