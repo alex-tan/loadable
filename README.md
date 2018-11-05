@@ -11,7 +11,7 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
 
 
 ```elm
-    import Animal
+    import Animal exposing (Animal)
     import Loadable as L
     import Html exposing (text)
     import Http
@@ -26,8 +26,8 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
 
     -- Define your Model, but without any unnecessary Maybe types.
     type alias Model =
-        { frog : Animal.Frog
-        , bird : Animal.Bird
+        { frog : Animal
+        , bird : Animal
         }
 
     -- Define your Msg as you normally would.
