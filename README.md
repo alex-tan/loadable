@@ -26,8 +26,8 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
 
     -- Define your Model, but without any unnecessary Maybe types.
     type alias Model =
-        { frog : Int
-        , bird : Int
+        { frog : Animal.Frog
+        , bird : Animal.Bird
         }
 
     -- Define your Msg as you normally would.
