@@ -16,6 +16,7 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
     import Html exposing (text)
     import Http
     import Task exposing (Task)
+    import Ports
 
 
     -- Define your Flags as you normally would.
@@ -41,9 +42,14 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
         L.element
             { update = \msg model -> model
             , subscriptions = subscriptions
-            , view = text ""
+            , view =
+                \model -> 
+                    div []
+                        [ animalView model.bird
+                        , animalView model.frog
+                        ]
             , load = load
-            , failCmd = Nothing
+            , failCmd = Just <| errorToString >> Ports.reportError
             , loadingView = Just (\flags -> text "Loading...")
             , errorView = Just (\error -> text "Something went wrong!")
             }
