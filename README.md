@@ -49,7 +49,7 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
                         , animalView model.frog
                         ]
             , load = load
-            , failCmd = Just <| errorToString >> Ports.reportError
+            , failCmd = Just (errorToString >> Ports.reportError)
             , loadingView = Just (\flags -> text "Loading...")
             , errorView = Just (\error -> text "Something went wrong!")
             }
