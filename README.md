@@ -13,7 +13,7 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
 ```elm
     import Animal exposing (Animal)
     import Loadable as L
-    import Html exposing (text)
+    import Html exposing (div, text)
     import Http
     import Task exposing (Task)
     import Ports
