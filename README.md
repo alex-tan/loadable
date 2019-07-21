@@ -61,7 +61,7 @@ Credit to [@bamorim](https://github.com/bamorim) for the initial implementation.
         Sub.none
 
     -- This is what sets a Loadable element apart from a
-    -- normal Browser.element. You can joinhowever many
+    -- normal Browser.element. You can join however many
     -- Tasks you want together to return your starting
     -- (Model, Msg) when the page loads. In the
     -- meantime, the `loadingView` you specify will
