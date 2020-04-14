@@ -1,12 +1,11 @@
 module Loadable.Application exposing (init, view)
 
-import Browser exposing (..)
+import Browser exposing (Document)
 import Browser.Navigation exposing (Key)
-import Html exposing (..)
-import Loadable.Element exposing (blank)
-import Loadable.Types exposing (..)
+import Html
+import Loadable.Types exposing (Model(..), Msg(..), resultToMsg)
 import Task exposing (Task)
-import Url exposing (..)
+import Url exposing (Url)
 
 
 init :

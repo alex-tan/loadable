@@ -6,14 +6,14 @@ module Loadable exposing (element, application, Program)
 
 -}
 
-import Browser exposing (..)
-import Browser.Navigation exposing (..)
+import Browser exposing (Document, UrlRequest)
+import Browser.Navigation exposing (Key)
 import Html exposing (Html, text)
 import Loadable.Application as A
 import Loadable.Element as E
 import Loadable.Types exposing (..)
 import Task exposing (Task)
-import Url exposing (..)
+import Url exposing (Url)
 
 
 {-| An alias for the Browser.Program that gets produced from this package which makes

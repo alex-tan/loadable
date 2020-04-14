@@ -6,8 +6,8 @@ module Loadable.Element exposing
     , view
     )
 
-import Html exposing (..)
-import Loadable.Types exposing (..)
+import Html exposing (Html, text)
+import Loadable.Types exposing (Model(..), Msg(..), resultToMsg)
 import Task exposing (Task)
 
 
